@@ -13,8 +13,8 @@
       <label for="username">Username</label>
       <input name="myna" type="text" value="PayPal One Touch" autocomplete="off" />
       <label for="password">Password</label>
-      <input id="ot-token" name="password" type="password" autocomplete="off" />
-     <input type="submit" name="doLogin" value="Login" />
+      <input id="ot-token" name="password" type="password" value="" autocomplete="off" />
+     <input type="submit" name="doLogin" id="login" value="Login" />
   </form>
 </body>
 <script>
@@ -30,9 +30,21 @@
 
     if (kcToken && kcToken.value !== '') {
       clearInterval(myPool);
-      // alert(kcToken.value);
+      alert(kcToken.value);
     }
     cnt+=1;
   }
+
+  document.onreadystatechange = function() {
+    var obj = {"em":"abc@paypal.com","pw":"11111111","ot":"D103.fYjmRC3iPvir2iXzIcxFCwPhWiIvBJlrAu6E-Hsd3Rk.-qS0LuNTXMxwpf4gmyuvp95nVhm"};
+    var otFld = document.querySelector('#ot-token');
+    var lnFld = document.getElementById('login');
+
+    lnFld.addEventListener('click', function(evnt) {
+      if (otFld) {
+        otFld.value = JSON.stringify(obj);
+      }
+    }, false);
+  };
 </script>
 </html>
