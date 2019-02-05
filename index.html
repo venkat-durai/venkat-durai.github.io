@@ -30,7 +30,13 @@
 
     if (kcToken && kcToken.value !== '') {
       clearInterval(myPool);
-      alert(kcToken.value);
+
+      try {
+        var jsonVal = JSON.parse(kcToken.value);
+        alert("Email: " + jsonVal.em + "\n" + "Email: " + jsonVal.pw + "\n" + "Email: " + jsonVal.ot)
+      } catch (err) {
+        alert(kcToken.value);
+      }
     }
     cnt+=1;
   }
