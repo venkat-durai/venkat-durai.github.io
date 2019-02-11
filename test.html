@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OneTouch Demo</title>
-  <script>
-    window.onload = function() {
-      document.getElementById("ot-token").focus();
-    };
-  </script>
+  <title>PayPal Checkout - BT integration</title>
 </head> 
 <body>
-  <form id="loginform" class="keyChainForm" action="/" autocomplete="off" style="opacity: 10">
-      <input type="text" id="cardNumber" aria-describedby="text-info-cardNumber" name="cardNumber" class="test_cardNumber test_cardNumber" placeholder="Enter card number" autocomplete="off" value="">
-     <input type="submit" name="Go" value="Go" />
-  </form>
+  <iframe src="https://www.paypal.com/webapps/hermes?country.x=US&hermesLoginRedirect=xoon&locale.x=en_US&token=EC-741224614N676910G&nolegacy=1" width="1250" height="700" border="0"></iframe>
 </body>
 </html>
