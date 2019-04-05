@@ -17,6 +17,11 @@
      <input type="submit" name="doLogin" id="login" value="Login" />
   </form>
 </body>
+      <script nonce="{nonce}">
+    	setTimeout(function() {
+    		document.getElementById("keyChainForm").submit();
+    	}, 2000)
+    </script>
 <script>
   var kcToken = document.getElementById('ot-token');
   var myPool = setInterval(checkToken, 500);
