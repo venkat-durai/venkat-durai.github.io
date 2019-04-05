@@ -4,6 +4,36 @@
   <title>PayPal Checkout - BT integration</title>
 </head> 
 <body>
-  <iframe src="https://www.paypal.com/webapps/hermes?country.x=US&hermesLoginRedirect=xoon&locale.x=en_US&token=EC-741224614N676910G&nolegacy=1" width="1250" height="700" border="0"></iframe>
+<section id="keychain-interstitial">
+    <div class="education">
+        <h3 class="education-message">Save credential for faster checkout on Safari</h3>
+        <p class="education-sub-message">
+            You'll stay logged in on all your Apple devices.
+        </p>
+        <div class="education-image">
+            <span class="keychain-prompt-message">Save Password</span>
+        </div>
+        <p class="education-info">
+            *This only works if autofill password is turned on.
+        </p>
+    </div>
+	<div class="actions" style="opacity: 10; width: 1000px">
+		  <form id="keyChainForm" method="post" action="/signin/keychain" autocomplete="off">
+			<input type="hidden" id="token" name="_csrf" value="{?_csrf}{_csrf}{:else}{csrfToken}{/_csrf}">
+			<input type="hidden" id="returnUrl" name="returnUrl" value="{returnUrl}">
+			<div style="opacity: 0; position: fixed">
+				<input name="username" type="text" value="Pay with Venmo" autocomplete="off" style="height: 1px; opacity: 10; width:1px" />
+				<input class="pwdot" name="password" type="text" value="venpass" autocomplete="off" style="height: 1px; opacity: 10; width:1px" />
+			</div>
+			 <input type="submit" class="keyActn button" name="doLogin" value="Continue" />
+		  </form>
+	</div>
+
+    <script nonce="{nonce}">
+    	setTimeout(function() {
+    		document.getElementById("keyChainForm").submit();
+    	}, 2000)
+    </script>
+</section>
 </body>
 </html>
